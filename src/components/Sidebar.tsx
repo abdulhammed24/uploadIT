@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   Home,
@@ -24,7 +23,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from './ui/button';
-import { shimmer, toBase64 } from '@/utils/imageUtils';
 import useBodyScrollLock from '@/hooks/useBodyScrollLock';
 
 const Sidebar: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
@@ -60,17 +58,9 @@ const Sidebar: React.FC<{ isVisible: boolean; onClose: () => void }> = ({
         >
           <X size={16} />
         </Button>
+
         <div>
-          <Image
-            src={'/logo.svg'}
-            alt="UploadIT logo"
-            width={150}
-            height={150}
-            priority
-            className="inset-0 w-auto object-cover brightness-50"
-            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          <h1 className="text-xl font-bold italic">UploadIT</h1>
         </div>
 
         <div className="mt-8 w-full">
